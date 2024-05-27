@@ -16,7 +16,7 @@ if __name__ == '__main__':
     val_label_path = os.path.join(data_path, 'labels', 'val')
 
     # YOLOv8 모델 초기화
-    model = YOLO('yolov8m.pt')  # YOLOv8 모델 사용
+    model = YOLO('yolov5s.pt')  # YOLOv8 모델 사용
 
     # 데이터셋 정의를 위한 YAML 파일 경로
     data_yaml_path = 'C:\\Users\AIA\yolov5\yolo_datasets\\data.yaml'
