@@ -20,6 +20,7 @@ while cap.isOpened():
     # YOLO를 사용하여 프레임에서 객체 탐지
     results = model.predict(frame, conf=0.5,vid_stride=7)
 
+
     confidence_thresholds = {
         # 'person': 0.7,
         # 'bicycle': 0.5,
