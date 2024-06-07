@@ -1,3 +1,4 @@
+
 from ultralytics import YOLO
 import cv2
 import torch
@@ -5,11 +6,12 @@ USE_CUDA = torch.cuda.is_available()
 DEVICE = torch.device('cuda' if USE_CUDA else 'cpu')
 print(torch.__version__, 'device', DEVICE)
 # YOLO 모델 로드
-model = YOLO('C:/Users/AIA/yolov5/runs/detect/train7/weights/best.pt')
+# model = YOLO('C:/Users/AIA/yolov5/runs/detect/train7/weights/last.pt')    # 현재 그나마 제일 좋은 성능을 가짐
+model = YOLO('C:/Users/AIA/yolov5/runs/detect/train15/weights/best.pt')
 
 model.model.names = ['빨간불','초록불','빨간불','초록불','자전거','킥보드','라바콘','횡단보도']
 # 비디오 파일 로드
-cap = cv2.VideoCapture('C:/Users/AIA/yolov5/video/횡단보도 신호등.mp4')
+cap = cv2.VideoCapture('111111111.mp4')
 
 # 프레임별로 처리
 while cap.isOpened():
@@ -40,17 +42,17 @@ while cap.isOpened():
             x_center1 = (x1 + x2) / 2
             y_center1 = (y1 + y2) / 2
             if x_center1 < 720 / 2:
-                x_center2 = 'left'
+                x_center2 = '좌'
             elif 720 / 2 < x_center1 < 720 / 2 + 720 / 2:
-                x_center2 = 'middle'
+                x_center2 = '정면'
             elif 720 / 2 < x_center1:
-                x_center2 = 'right'
+                x_center2 = '우'
             if y_center1 < 720 / 2:
-                y_center2 = 'up'
+                y_center2 = '상'
             elif 720 / 2 < y_center1 < 720 / 2 + 720 / 2:
-                y_center2 = 'center'
+                y_center2 = '중'
             elif 720 / 2 < y_center1:
-                y_center2 = 'down'
+                y_center2 = '하'
             location = f"{x_center2} {y_center2}"
             print(f"{location}, {label}")
 
