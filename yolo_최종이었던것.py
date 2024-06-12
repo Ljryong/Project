@@ -9,7 +9,7 @@ DEVICE = torch.device('cuda' if USE_CUDA else 'cpu')
 print(torch.__version__, 'device', DEVICE)
 
 # YOLO 모델 로드
-model = YOLO('C:/Users/AIA/yolov5/runs/detect/train15/weights/best.pt')
+model = YOLO('C:/Users/AIA/yolov5/runs/detect/train16/weights/best.pt')
 model.model.names = ['빨간불', '초록불', '빨간불', '초록불', '자전거', '킥보드', '라바콘', '횡단보도']
 
 # 클래스별 바운딩 박스 색상 지정
